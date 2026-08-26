@@ -1,0 +1,21 @@
+Name,RA,Declination,Magnitude,Constellation,SpectralType
+Sirius,101.2875,-16.7161,-1.46,Canis Major,A1V
+Canopus,95.9879,-52.6957,-0.74,Carina,A9II
+Arcturus,213.9153,19.1824,-0.05,Bootes,K1.5III
+Vega,279.2347,38.7837,0.03,Lyra,A0V
+Capella,79.1723,45.9979,0.08,Auriga,G8III
+Rigel,78.6345,-8.2016,0.13,Orion,B8Ia
+Procyon,114.8255,5.2249,0.34,Canis Minor,F5IV
+Betelgeuse,88.7929,7.4071,0.42,Orion,M1-M2Ia-Iab
+Achernar,24.4285,-57.2368,0.46,Eridanus,B6Vep
+Altair,297.6958,8.8683,0.77,Aquila,A7V
+Aldebaran,68.9800,16.5093,0.85,Taurus,K5III
+Spica,201.2983,-11.1614,0.98,Virgo,B1V
+Antares,247.3519,-26.4320,1.09,Scorpius,M1.5Iab-Ib
+Pollux,116.3289,28.0262,1.14,Gemini,K0III
+Fomalhaut,344.4128,-29.6222,1.16,Piscis Austrinus,A3V
+Deneb,310.3579,45.2803,1.25,Cygnus,A2Ia
+Regulus,152.0929,11.9672,1.35,Leo,B7V
+Castor,113.6494,31.8883,1.58,Gemini,A1V
+Bellatrix,81.2828,6.3497,1.64,Orion,B2III
+Alnilam,84.0534,-1.2019,1.69,Orion,B0Ia
