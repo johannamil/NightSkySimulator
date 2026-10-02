@@ -17,5 +17,6 @@ public class StarGenerator : MonoBehaviour
                 Instantiate(starPrefab, pos, Quaternion.identity);
             }
         }
+        // eventually i will add data values from files
     }
 }
