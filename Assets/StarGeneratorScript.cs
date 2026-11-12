@@ -3,20 +3,14 @@ using UnityEngine;
 public class StarGenerator : MonoBehaviour
 {
     public GameObject starPrefab;
-    public int starCount = 100;
-    public float radius = 20f;
+    public StarData star;
 
-    void Start()
+    public void GenerateStars(Vector3 coords, StarData star)
     {
-        for (int i = 0; i < starCount; i++)
-        {
-            Vector3 pos = Random.onUnitSphere * radius;
+        GameObject newstar = Instantiate(starPrefab, coords, Quaternion.identity);
 
-            if (pos.y > 0)
-            {
-                Instantiate(starPrefab, pos, Quaternion.identity);
-            }
-        }
-        // eventually i will add data values from files
+DisplayData data = newstar.GetComponent<DisplayData>();
+data.starData = star;
     }
+
 }

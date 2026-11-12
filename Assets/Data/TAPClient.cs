@@ -5,25 +5,44 @@ using UnityEngine.Networking;
 
 public class TAPClient : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public StarDataReader datareader;
+    //we've made an object that can split the returned csv text from the request into individual data values
     void Start()
     {
+        Debug.Log("TAP started");
         StartCoroutine(GetText());
     }
-    //IEnumerator means that the method can pause - useful for asynchronous queries
+    //IEnumerator means that the method can pause - useful for asynchronous queries where program waits
+
     IEnumerator GetText()
     {
-        UnityWebRequest request = UnityWebRequest.Get("https://simbad.cds.unistra.fr/simbad/sim-tap/sync?request=doQuery&lang=adql&format=csv&query=SELECT TOP 10 MAIN_ID,RA,DEC FROM BASIC WHERE rvz_redshift > 3.3");
+        string query = "SELECT TOP 100 MAIN_ID, RA, DEC " + "FROM BASIC " + "WHERE plx_value > 0 " + "AND otype = '*' " + "ORDER BY plx_value DESC";
+        //this is the query itself for 100 stars closest to us, returns the name, right ascension, and declination
+       string webaddress =
+    "https://simbad.cfa.harvard.edu/simbad/sim-tap/sync?request=doQuery&lang=adql&format=csv&query="
+    + UnityWebRequest.EscapeURL(query);
+        UnityWebRequest request = UnityWebRequest.Get(webaddress);
         yield return request.SendWebRequest();
 
         if (request.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(request.error);
+            Debug.Log("request failed");
         }
         else
         {
             Debug.Log(request.downloadHandler.text);
+            string datafile = request.downloadHandler.text;
+            datareader.ReadStarData(datafile);
+
+            if (datareader == null)
+            {
+                Debug.LogError("not assigned");
+                yield break;
+            }
+
         }
 
     }
 }
+
