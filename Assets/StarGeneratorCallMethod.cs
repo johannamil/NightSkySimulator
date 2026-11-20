@@ -18,7 +18,9 @@ public class StarGeneratorCallMethod : MonoBehaviour
         foreach (StarData star in starDataReader.stars)
         {
             Vector3 coords = coordConvert.Coordinates(star.rightAscension, star.declination);
+
             starGenerator.GenerateStars(coords, star);
         }
     }
 }
+

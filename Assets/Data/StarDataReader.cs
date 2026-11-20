@@ -22,15 +22,20 @@ public class StarDataReader : MonoBehaviour
                 continue;
             //so the program doesn't count spaces
             string[] values = lines[i].Split(',');
+            Debug.Log("lines: " + lines.Length);
+            Debug.Log("values: " + values.Length);
             //splits the values at the comma
             StarData star = new StarData();
-            //new star object - at the minute I'm only querying for name, RA, dec
+            //new star object - at the minute I'm only querying for name, RA, dec, and spectral type
             star.name = values[0].Trim().Trim('"');
             star.rightAscension = float.Parse(values[1]);
             star.declination = float.Parse(values[2]);
+            Debug.Log("sptype: " + values[3]);
+            star.spectralType = values[3].Trim().Trim('"');
+            //some stars don't have a spectral type, meaning this could give out of bounds error
             //star fields
             stars.Add(star);
-            Debug.Log("Added star: " + star.name);
+
         }
         Debug.Log("Loaded " + stars.Count + " stars.");
         dataLoaded = true;

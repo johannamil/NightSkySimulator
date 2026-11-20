@@ -16,7 +16,7 @@ public class TAPClient : MonoBehaviour
 
     IEnumerator GetText()
     {
-        string query = "SELECT TOP 100 MAIN_ID, RA, DEC " + "FROM BASIC " + "WHERE plx_value > 0 " + "AND otype = '*' " + "ORDER BY plx_value DESC";
+        string query = "SELECT TOP 100 MAIN_ID, RA, DEC, sp_type " + "FROM BASIC " + "WHERE plx_value > 0 " + "AND otype = 'star..' " + "ORDER BY plx_value DESC";
         //this is the query itself for 100 stars closest to us, returns the name, right ascension, and declination
        string webaddress =
     "https://simbad.cfa.harvard.edu/simbad/sim-tap/sync?request=doQuery&lang=adql&format=csv&query="

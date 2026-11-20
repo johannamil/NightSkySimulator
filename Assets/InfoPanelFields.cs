@@ -7,11 +7,15 @@ public class InfoPanelFields : MonoBehaviour
     public TextMeshProUGUI RA;
     public TextMeshProUGUI dec;
 
+    public TextMeshProUGUI SPtype;
+
     public void GetFields(StarData star)
     {
-        Name.text = star.name;
-        RA.text = star.rightAscension.ToString();
-        dec.text = star.declination.ToString();
+        Name.text = "Name: " + star.name;
+        RA.text = "RA: " + star.rightAscension.ToString();
+        dec.text = "dec: " + star.declination.ToString();
+        SPtype.text = "sp type: " + star.spectralType.ToString();
+
     }
 
 }
