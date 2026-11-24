@@ -13,12 +13,10 @@ public class TextInput : MonoBehaviour
     {
         inputfield = GetComponent<TMP_InputField>();
         inputfield.onEndEdit.AddListener(InputSubmit);
-        Debug.Log(inputfield.text);
         enteredText = inputfield.text.ToString();
-    
-    }
 
-    // Update is called once per frame
+    }
+    
     void InputSubmit(string enteredText)
     {
         Debug.Log(enteredText);
